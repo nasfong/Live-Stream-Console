@@ -1,21 +1,18 @@
 import type { Metadata } from 'next';
-import { Heading } from "@/components/ui/heading";
+import PageContainer from "@/components/features/layouts/page-container";
 
 export const metadata: Metadata = {
-  title: 'Streaming Plans',
-  description: 'Upgrade your streaming capabilities with our plans',
+  title: 'Plan',
+  description: 'Manage your live stream plan',
 };
 
-export default function StreamingPlanPage() {
+export default function Page() {
   return (
-    <div className="space-y-6">
-      <Heading 
-        title="Streaming Plans" 
-        description="Upgrade your streaming capabilities with our plans" 
-      />
-      <div className="rounded-lg border p-8 text-center text-muted-foreground">
-        <p>Plans coming soon</p>
+    <PageContainer>
+      <div className="space-y-4">
+        <h1 className="text-3xl font-bold">Plan</h1>
+        <p className="text-muted-foreground">Manage your live stream plan</p>
       </div>
-    </div>
-  );
+    </PageContainer>
+  )
 }

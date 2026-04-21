@@ -1,21 +1,18 @@
 import type { Metadata } from 'next';
-import { Heading } from "@/components/ui/heading";
+import PageContainer from "@/components/features/layouts/page-container";
 
 export const metadata: Metadata = {
-  title: 'Streaming Analytics',
-  description: 'Monitor and analyze your streaming performance metrics',
+  title: 'Analytics',
+  description: 'View analytics and performance metrics for your live streams',
 };
 
-export default function StreamingAnalyticsPage() {
+export default function Page() {
   return (
-    <div className="space-y-6">
-      <Heading 
-        title="Streaming Analytics" 
-        description="Monitor and analyze your streaming performance metrics" 
-      />
-      <div className="rounded-lg border p-8 text-center text-muted-foreground">
-        <p>Analytics data coming soon</p>
+    <PageContainer>
+      <div className="space-y-4">
+        <h1 className="text-3xl font-bold">Analytics</h1>
+        <p className="text-muted-foreground">View analytics and performance metrics for your live streams</p>
       </div>
-    </div>
-  );
+    </PageContainer>
+  )
 }

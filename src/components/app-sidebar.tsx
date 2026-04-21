@@ -116,26 +116,29 @@ const data = {
 
 function SidebarHeaderContent() {
   const { state } = useSidebar()
-  const isExpanded = state === "expanded"
 
   return (
-    <div className={`flex items-center ${isExpanded ? "gap-3 px-2 py-4" : "gap-0 px-2 py-2 justify-center"} rounded-lg`}>
+    <div className={`flex items-center gap-0 px-2 py-2 rounded-lg transition-all duration-200 ease-in-out justify-start`} style={{ gap: state === "expanded" ? "0.75rem" : "0", paddingTop: state === "expanded" ? "1rem" : "0.5rem", paddingBottom: state === "expanded" ? "1rem" : "0.5rem" }}>
       <div className="shrink-0">
         <Image
           src="/cloud-plus-logo.png"
           alt="Cloud Plus Logo"
           width={40}
           height={40}
-          className={`dark:invert rounded-md ${isExpanded ? "w-10 h-10" : "w-8 h-8"}`}
+          className={`dark:invert rounded-md transition-all duration-200 ease-in-out ${state === "expanded" ? "w-10 h-10" : "w-5 h-5"}`}
           loading="eager"
         />
       </div>
-      {isExpanded && (
-        <div className="flex flex-col min-w-0">
-          <span className="text-sm font-bold text-foreground leading-tight">Cloud+</span>
-          <span className="text-xs text-muted-foreground font-medium">Media</span>
-        </div>
-      )}
+      <div
+        className={`grid flex-1 text-left text-sm leading-tight transition-all duration-200 ease-in-out ${
+          state === "collapsed"
+            ? "invisible max-w-0 overflow-hidden opacity-0"
+            : "visible max-w-full opacity-100"
+        }`}
+      >
+        <span className="truncate font-bold text-foreground">Cloud+</span>
+        <span className="truncate text-xs text-muted-foreground font-medium">Media</span>
+      </div>
     </div>
   )
 }
